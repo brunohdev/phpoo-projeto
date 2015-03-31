@@ -1,5 +1,7 @@
 <?php
 
+namespace SON;
+
 class Produto
 {
     private $db;
@@ -11,17 +13,9 @@ class Produto
     
     public function listar()
     {
-        $query = "SELECT * FROM produtos";
+        $query = "SELECT nome FROM produtos";
         $stmt = $this->db->query($query);
         
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC); // Traz os dados
-        
-        $array = array();
-        
-        foreach ($resultado as $p) {
-            $array[] = $p['nome'];
-        }
-        
-        return $array;
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Traz os dados
     }
 }
