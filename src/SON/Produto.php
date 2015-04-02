@@ -16,6 +16,6 @@ class Produto
         $query = "SELECT nome FROM produtos";
         $stmt = $this->db->query($query);
         
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Traz os dados
+        return $stmt->fetchAll(); // Traz os dados
     }
 }

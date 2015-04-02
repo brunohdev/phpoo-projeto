@@ -1,11 +1,11 @@
 <?php
 
 use SON\Produto;
+use SON\Database;
 
-require_once '../config.php';
-require_once '../src/SON/Produto.php';
+$db = new Database(include __DIR__."/../config.php");
+$produto = new Produto($db->getPdo());
 
-$produto = new Produto($conexao);
 $produtos = $produto->listar();
 
 foreach ($produtos as $p) {
